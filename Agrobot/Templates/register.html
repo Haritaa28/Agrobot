@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="auth-card">
+  <div style="text-align: center; margin-bottom: 24px;">
+    <span style="font-size: 64px;">🌱</span>
+  </div>
+  <h2>Join AI-AgroBot</h2>
+  <p style="text-align: center; color: var(--text-light); margin-bottom: 28px;">
+    Create your account and start farming smarter today!
+  </p>
+
+  <form method="post">
+    <label>
+      👤 Full Name
+      <input name="name" type="text" placeholder="Enter your full name">
+    </label>
+
+    <label>
+      📧 Email Address
+      <input name="email" type="email" required placeholder="Enter your email">
+    </label>
+
+    <label>
+      🔒 Password
+      <input name="password" type="password" required placeholder="Create a strong password">
+    </label>
+
+    <label>
+      🌾 Primary Crop
+      <input name="primary_crop" type="text" placeholder="e.g., Rice, Wheat, Cotton">
+    </label>
+
+    <label>
+      📍 Region/Location
+      <input name="region" type="text" placeholder="e.g., Punjab, Maharashtra">
+    </label>
+
+    <label>
+      🗣️ Preferred Language
+      <select name="preferred_language">
+        <option value="en">English</option>
+        <option value="hi">हिंदी (Hindi)</option>
+        <option value="ta">தமிழ் (Tamil)</option>
+        <option value="ml">മലയാളം (Malayalam)</option>
+        <option value="te">తెలుగు (Telugu)</option>
+      </select>
+    </label>
+
+    <div class="actions">
+      <button class="btn" type="submit" style="flex: 1;">✨ Create Account</button>
+    </div>
+
+    <div style="text-align: center; margin-top: 20px;">
+      <span style="color: var(--text-light); font-size: 14px;">Already have an account? </span>
+      <a href="{{ url_for('login') }}" style="color: var(--primary); text-decoration: none; font-weight: 600;">Login here →</a>
+    </div>
+  </form>
+</div>
+{% endblock %}

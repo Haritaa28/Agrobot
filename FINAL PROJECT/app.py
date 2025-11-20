@@ -187,9 +187,15 @@ def admin_upload_kb_csv():
             reader = csv.DictReader(csvfile)
             for r in reader:
                 keys = [k.strip() for k in (r.get('keywords') or "").split(',') if k.strip()]
-                rows.append(
-                    {"keywords": keys, "answer_en": r.get('answer_en') or "", "answer_hi": r.get('answer_hi') or "",
-                     "answer_ta": r.get('answer_ta') or ""})
+                rows.append({
+                    "keywords": keys,
+                    "answer_en": r.get("answer_en") or "",
+                    "answer_hi": r.get("answer_hi") or "",
+                    "answer_ta": r.get("answer_ta") or "",
+                    "answer_te": r.get("answer_te") or "",
+                    "answer_ma": r.get("answer_ma") or "",
+                })
+
         # merge into KB
         try:
             with open(KB_PATH, "r", encoding='utf-8') as f:

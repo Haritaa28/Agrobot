@@ -3,11 +3,37 @@
 <div class="auth-card">
   <h2>Your profile</h2>
   <form method="post">
-    <label>Name<input name="name" value="{{ current_user.name or '' }}"></label>
-    <label>Primary crop<input name="primary_crop" value="{{ current_user.primary_crop or '' }}"></label>
-    <label>Region<input name="region" value="{{ current_user.region or '' }}"></label>
-    <label>Preferred language<select name="preferred_language"><option value="en" {% if current_user.preferred_language=='en' %}selected{% endif %}>English</option><option value="hi" {% if current_user.preferred_language=='hi' %}selected{% endif %}>Hindi</option><option value="ta" {% if current_user.preferred_language=='ta' %}selected{% endif %}>Tamil</option></select></label>
-    <div class="actions"><button class="btn" type="submit">Save</button></div>
+
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input id="name" name="name" value="{{ current_user.name or '' }}">
+    </div>
+
+    <div class="form-group">
+      <label for="primary_crop">Primary crop</label>
+      <input id="primary_crop" name="primary_crop" value="{{ current_user.primary_crop or '' }}">
+    </div>
+
+    <div class="form-group">
+      <label for="region">Region</label>
+      <input id="region" name="region" value="{{ current_user.region or '' }}">
+    </div>
+
+    <div class="form-group">
+      <label for="preferred_language">Preferred language</label>
+      <select id="preferred_language" name="preferred_language">
+        <option value="en" {% if current_user.preferred_language=='en' %}selected{% endif %}>English</option>
+        <option value="hi" {% if current_user.preferred_language=='hi' %}selected{% endif %}>Hindi</option>
+        <option value="ta" {% if current_user.preferred_language=='ta' %}selected{% endif %}>Tamil</option>
+        <option value="te" {% if current_user.preferred_language=='te' %}selected{% endif %}>Telugu</option>
+        <option value="ml" {% if current_user.preferred_language=='ml' %}selected{% endif %}>Malayalam</option>
+      </select>
+    </div>
+
+    <div class="actions">
+      <button class="btn" type="submit">Save</button>
+    </div>
+
   </form>
 </div>
 {% endblock %}
